@@ -1,0 +1,202 @@
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "test2",
+    "email": "test2@gmail.com",
+    "password": "123456"
+}
+
+###
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "friend",
+  "password": "12345"
+}
+
+###
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "test3",
+  "password": "12345"
+}
+
+###
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "test2",
+  "password": "123456"
+}
+
+### MY SUBMISSIONS
+GET http://localhost:8080/api/submissions/my
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg5MDE2NzQwLCJleHAiOjE3ODkwMjAzNDB9.drOCP3pRXHQ0YowYeXOM9iDEp8sDmhZXk2SLrAQjlJM1NMOv1gAFr3mT8zmL4q0z
+
+### ADMIN - ALL SUBMISSIONS
+GET http://localhost:8080/api/admin/submissions/1
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmcmllbmQiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3ODkwMTY4MjAsImV4cCI6MTc4OTAyMDQyMH0.NX995194VcPKnqHroOkREKSldU36NSEMcALcH2TfeK4lwlWyjMsLYhTDFwv9yTHs
+
+### NON-EXISTING SUBMISSION
+GET http://localhost:8080/api/admin/submissions/9999
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmcmllbmQiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3ODkwMTczMjEsImV4cCI6MTc4OTAyMDkyMX0.3PUeHh6_YKZjtjgrzUe4KyFtGhaLYDc1nrvBd1WOaoRCr05W4l-IE7ija1DJCTjx
+
+###
+GET http://localhost:8080/api/admin/users
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmcmllbmQiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3ODkwMTU3MDksImV4cCI6MTc4OTAxOTMwOX0.lOcw6sw4vX4z94j7iE4b44xMW80BmrRIYeGl93PdL6Iy6fLw8uo1wL9kBywFa9mN
+
+###
+GET http://localhost:8080/api/challenges
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg4OTc2ODIwLCJleHAiOjE3ODg5ODA0MjB9.c2_JLrZiv_-sgoxnUtKqQ-9bflR-5iHeIHdeHgqXdWrUWrgDh1P0OUveNzJLob1k
+
+### DELETE TEST USER
+DELETE http://localhost:8080/api/admin/users/6
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmcmllbmQiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3ODkwMTU3MDksImV4cCI6MTc4OTAxOTMwOX0.lOcw6sw4vX4z94j7iE4b44xMW80BmrRIYeGl93PdL6Iy6fLw8uo1wL9kBywFa9mN
+
+###
+POST http://localhost:8080/api/admin/challenges
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmcmllbmQiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3ODg5NzY5MDQsImV4cCI6MTc4ODk4MDUwNH0.Po1wLn1JADqq5sxWIYIZ8oKrt9720rKp-vUnGABXSnpvS7Diq-71nlTUaErUEjRJ
+Content-Type: application/json
+
+{
+    "title": "Basic SQL Injection",
+    "description": "Find the hidden secret using SQL injection.",
+    "category": "Web",
+    "difficulty": "Easy",
+    "points": 100,
+    "flag": "CTF{sql_injection_101}"
+}
+
+###
+POST http://localhost:8080/api/submissions/1
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg4OTc2OTg0LCJleHAiOjE3ODg5ODA1ODR9.ZL_n-IrBmOY2C0iZNWQyKOLGxBOz7zFTAnMeY1-zpK3i3B58pJJY3hkgYukv6SmP
+Content-Type: application/json
+
+{
+    "flag": "CTF{sql_injection_101}"
+}
+
+###
+GET http://localhost:8080/api/submissions/my
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg4OTc2OTg0LCJleHAiOjE3ODg5ODA1ODR9.ZL_n-IrBmOY2C0iZNWQyKOLGxBOz7zFTAnMeY1-zpK3i3B58pJJY3hkgYukv6SmP
+
+###
+
+GET http://localhost:8080/api/leaderboard
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg4OTc3NDIwLCJleHAiOjE3ODg5ODEwMjB9.exKKxHp3ePsKH-0qqx5jWbOQrycIpysviGgzg78GVG_B3BNr8f_sglv27LFOKc_Y
+
+### WRONG FLAG TEST
+
+POST http://localhost:8080/api/submissions/1
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MiIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg5MDE3MTMxLCJleHAiOjE3ODkwMjA3MzF9.FvUIfxYeZXB6kfyQdR3NVWBTQqZKBKO_r-vbUmpo96r_ORI461dEIvlhASzBrin4
+Content-Type: application/json
+
+{
+    "flag": "CTF{wrong_flag}"
+}
+
+
+### GET ALL USERS - ADMIN
+GET http://localhost:8080/api/admin/users
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmcmllbmQiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3ODg5Nzc3NjEsImV4cCI6MTc4ODk4MTM2MX0.J7MEF2fKzQLgOhfz9Jfbl16n5PSFkFZ_lThViZhxLE5S33mQ2iBgd6jRRtAn5-SE
+
+
+### GET ONE USER - ADMIN
+GET http://localhost:8080/api/admin/users/1
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmcmllbmQiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3ODg5Nzc3NjEsImV4cCI6MTc4ODk4MTM2MX0.J7MEF2fKzQLgOhfz9Jfbl16n5PSFkFZ_lThViZhxLE5S33mQ2iBgd6jRRtAn5-SE
+
+### GET NON-EXISTING USER
+GET http://localhost:8080/api/admin/users/9999
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmcmllbmQiLCJyb2tlIjoiQURNSU4iLCJpYXQiOjE3ODg5Nzc3NjEsImV4cCI6MTc4ODk4MTM2MX0.J7MEF2fKzQLgOhfz9Jfbl16n5PSFkFZ_lThViZhxLE5S33mQ2iBgd6jRRtAn5-SE
+
+
+### USER TRYING TO ACCESS ADMIN USERS
+GET http://localhost:8080/api/admin/users
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg4OTc4MDA2LCJleHAiOjE3ODg5ODE2MDZ9.uJC14n05ze7DEz3nicv-k9vII2VfW8SRuF4kbqRraDzqNKNRB95A29D78X5GaVTK
+
+### DELETE USER - ADMIN
+DELETE http://localhost:8080/api/admin/users/3
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmcmllbmQiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3ODg5Nzg2NjYsImV4cCI6MTc4ODk4MjI2Nn0.glqt3a7tLTcIBiQcZrV0GiprI84WIuEaFmSXgVNmM70dClqTs5u1XUMvrZOcjpt1
+
+
+### CHANGE PASSWORD
+
+POST http://localhost:8080/api/auth/change-password
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg5MDE3NjE2LCJleHAiOjE3ODkwMjEyMTZ9.DNLX0Lc3L7GRKiKenlmUdTbPqb91LT8KgqBqNSuJoEReKYJx70gwP4V1jbuxc-sn
+Content-Type: application/json
+
+{
+    "username": "test3",
+    "oldPassword": "12345",
+    "newPassword": "123456"
+}
+
+### FORGOT PASSWORD
+POST http://localhost:8080/api/auth/forgot-password
+Content-Type: application/json
+
+{
+    "email": "doesnotexist@gmail.com",
+    "newPassword": "12345"
+}
+
+### CHANGE PASSWORD WITHOUT TOKEN
+POST http://localhost:8080/api/auth/change-password
+Content-Type: application/json
+
+{
+    "username": "test3",
+    "oldPassword": "12345",
+    "newPassword": "123456"
+}
+
+
+
+
+
+
+### 1 - REGISTER
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "finaluser",
+    "email": "finaluser@gmail.com",
+    "password": "12345"
+}
+
+### 2 - LOGIN
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "finaluser",
+    "password": "12345"
+}
+
+### 3 - USER PROFILE
+GET http://localhost:8080/api/user/profile
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmaW5hbHVzZXIiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc4OTAxODEwNiwiZXhwIjoxNzg5MDIxNzA2fQ.3h0Tk0mgs7jdrdmVfZWiQ2kTMsC6TFdk8WtcfEBuQNM0x5TPV9KwAldc49KgwHUh
+
+### 4 - USER CHALLENGES
+GET http://localhost:8080/api/challenges
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmaW5hbHVzZXIiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc4OTAxODEwNiwiZXhwIjoxNzg5MDIxNzA2fQ.3h0Tk0mgs7jdrdmVfZWiQ2kTMsC6TFdk8WtcfEBuQNM0x5TPV9KwAldc49KgwHUh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
