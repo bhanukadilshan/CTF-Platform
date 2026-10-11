@@ -1,0 +1,73 @@
+name: cybervault-ctfd
+
+services:
+  permissions:
+    image: alpine:3.23
+    user: root
+    command: ["chown", "-R", "1001:1001", "/var/uploads", "/var/log/CTFd"]
+    volumes:
+      - ctfd_uploads:/var/uploads
+      - ctfd_logs:/var/log/CTFd
+    networks:
+      - backend
+
+  ctfd:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cybervault-ctfd:1.0
+    restart: unless-stopped
+    depends_on:
+      permissions:
+        condition: service_completed_successfully
+      db:
+        condition: service_started
+      cache:
+        condition: service_started
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      SECRET_KEY: ${CTFD_SECRET_KEY:?Run start.ps1 to generate .env}
+      DATABASE_URL: mysql+pymysql://ctfd:${CTFD_DB_PASSWORD:?Run start.ps1 to generate .env}@db/ctfd
+      REDIS_URL: redis://cache:6379
+      UPLOAD_FOLDER: /var/uploads
+      LOG_FOLDER: /var/log/CTFd
+      ACCESS_LOG: "-"
+      ERROR_LOG: "-"
+      WORKERS: "1"
+    volumes:
+      - ctfd_uploads:/var/uploads
+      - ctfd_logs:/var/log/CTFd
+    networks:
+      - frontend
+      - backend
+
+  db:
+    image: mariadb:10.11
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${CTFD_DB_ROOT_PASSWORD:?Run start.ps1 to generate .env}
+      MARIADB_DATABASE: ctfd
+      MARIADB_USER: ctfd
+      MARIADB_PASSWORD: ${CTFD_DB_PASSWORD:?Run start.ps1 to generate .env}
+    command: ["mariadbd", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci", "--wait_timeout=28800"]
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - backend
+
+  cache:
+    image: redis:7-alpine
+    restart: unless-stopped
+    networks:
+      - backend
+
+networks:
+  frontend:
+  backend:
+    internal: true
+
+volumes:
+  ctfd_uploads:
+  ctfd_logs:
+  db_data:

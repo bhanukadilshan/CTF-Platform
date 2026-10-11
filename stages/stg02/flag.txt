@@ -1,0 +1,1 @@
+CTF{weak_encoding_is_not_encryption}

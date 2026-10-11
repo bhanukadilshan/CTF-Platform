@@ -1,0 +1,24 @@
+#!/bin/bash
+
+CONFIG="/opt/blackout/blackout.conf"
+
+echo "Blackout Infrastructure Monitor"
+echo "==============================="
+
+if [ ! -f "$CONFIG" ]; then
+    echo "Configuration unavailable."
+    exit 1
+fi
+
+source "$CONFIG"
+
+echo "Monitor: $MONITOR_NAME"
+echo "Status: checking..."
+echo
+
+if [ -n "$CHECK_COMMAND" ]; then
+    eval "$CHECK_COMMAND"
+else
+    echo "No monitoring command configured."
+fi
+

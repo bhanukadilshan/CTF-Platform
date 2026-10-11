@@ -1,0 +1,6 @@
+CyberVault Weekly Operations Meeting
+
+- Review backup schedule
+- Complete workstation inventory
+- Update incident response contact list
+- Verify software patch status

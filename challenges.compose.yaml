@@ -1,0 +1,26 @@
+name: cybervault-challenges
+
+services:
+  stg03:
+    build: ./stages/stg03
+    image: cybervault-stg03:1.0
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5000:5000"
+    networks:
+      - stg03_net
+
+  stg06:
+    build: ./stages/stg06
+    image: cybervault-stg06:1.0
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:2222:22"
+    mem_limit: 256m
+    cpus: 0.50
+    networks:
+      - stg06_net
+
+networks:
+  stg03_net:
+  stg06_net:

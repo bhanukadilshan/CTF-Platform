@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+
+<body>
+
+<h1>Search Results</h1>
+
+{% if error %}
+
+    <h3>Database Error</h3>
+
+    <pre>{{ error }}</pre>
+
+{% elif results %}
+
+    {% for result in results %}
+
+        <div>
+
+            <hr>
+
+            {% for key in result.keys() %}
+
+                <p>
+                    <strong>{{ key }}:</strong>
+                    {{ result[key] }}
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+    {% endfor %}
+
+{% else %}
+
+    <p>No accessible records found.</p>
+
+{% endif %}
+
+<br>
+
+<a href="/">Back to Portal</a>
+
+</body>
+</html>

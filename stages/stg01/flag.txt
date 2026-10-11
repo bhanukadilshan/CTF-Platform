@@ -1,0 +1,1 @@
+CTF{pixels_hide_more_than_they_show}
